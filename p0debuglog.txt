@@ -1,4 +1,4 @@
-gcc -g p0original.c
+gcc -g p0final.c
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -16,19 +16,19 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x63e: file p0original.c, line 4.
+Breakpoint 1 at 0x63e: file p0final.c, line 4.
 (gdb) r
-Starting program: /home/runner/pps-test1-RNAGESHA-12/a.out 
+Starting program: /home/runner/pps-test1-RNAGESHA-28/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p0original.c:4
-4     printf("my name is nagesha\n");
+Breakpoint 1, main () at p0final.c:4
+4      printf("my name is NAGESHA R\n");
 (gdb) n
-my name is nagesha
-5     return 0;
+my name is NAGESHA R
+5      return 0;
 (gdb) n
-6   } 
+6   }
 (gdb) c
 Continuing.
-[Inferior 1 (process 89) exited normally]
-(gdb) .
+[Inferior 1 (process 101) exited normally]
+(gdb) 
