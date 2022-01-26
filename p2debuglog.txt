@@ -1,4 +1,4 @@
-gcc -g p2original.c
+gcc -g p2final.c
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -16,28 +16,66 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x810: file p2original.c, line 20.
+Breakpoint 1 at 0x810: file p2final.c, line 21.
 (gdb) r
-Starting program: /home/runner/pps-test1-RNAGESHA-12/a.out 
+Starting program: /home/runner/pps-test1-RNAGESHA-33/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p2original.c:20
-20    int a=input();
+Breakpoint 1, main () at p2final.c:21
+21    int a=input();
+(gdb) s
+input () at p2final.c:3
+3   {
 (gdb) n
-enter the number
-5
-21    int b=input();
+5     printf("enter the two numbers\n");
 (gdb) n
-enter the number
-9
-22    int sum=add(a,b);
+enter the two numbers
+6     scanf("%d",&a);
 (gdb) n
-23    output(a,b,sum);
+1
+7     return a;
 (gdb) n
-the sum of 5 and 9 is 14
-24    return 0;
+8   }
 (gdb) n
-25  }(gdb) c
+main () at p2final.c:22
+22    int b=input();
+(gdb) s
+input () at p2final.c:3
+3   {
+(gdb) n
+5     printf("enter the two numbers\n");
+(gdb) n
+enter the two numbers
+6     scanf("%d",&a);
+(gdb) n
+2
+7     return a;
+(gdb) n
+8   }
+(gdb) n
+main () at p2final.c:23
+23    int sum=add(a,b);
+(gdb) s
+add (a=1, b=2) at p2final.c:12
+12    sum = a + b;
+(gdb) n
+13    return sum;
+(gdb) n
+14  }
+(gdb) n
+main () at p2final.c:24
+24    output(a,b,sum);
+(gdb) s
+output (a=1, b=2, sum=3) at p2final.c:17
+17    printf("the sum of %d and %d is %d",a,b,sum);
+(gdb) n
+18  }
+(gdb) n
+main () at p2final.c:25
+25    return 0;
+(gdb) n
+26  }
+(gdb) c
 Continuing.
-[Inferior 1 (process 341) exited normally]
+the sum of 1 and 2 is 3[Inferior 1 (process 51) exited normally]
 (gdb) 
