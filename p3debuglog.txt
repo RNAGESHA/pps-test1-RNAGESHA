@@ -1,4 +1,4 @@
- gcc -g p3original.c
+ gcc -g p3final.c
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -16,54 +16,43 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x7fc: file p3original.c, line 16.
+Breakpoint 1 at 0x7fc: file p3final.c, line 16.
 (gdb) r
-Starting program: /home/runner/pps-test1-RNAGESHA-25/a.out 
+Starting program: /home/runner/pps-test1-RNAGESHA-33/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p3original.c:16
+Breakpoint 1, main () at p3final.c:16
 16  {
 (gdb) n
 18    input(&x,&y);
 (gdb) s
-input (a=0x7ffc6e0aabcc, b=0x7ffc6e0aabd0) at p3original.c:4
+input (a=0x7ffc2ebcc1dc, b=0x7ffc2ebcc1e0) at p3final.c:4
 4   printf("enter the two number\n");
 (gdb) n
 enter the two number
 5   scanf("%d %d",a,b );
 (gdb) n
-5
+1
 2
 6   }
 (gdb) n
-main () at p3original.c:19
+main () at p3final.c:19
 19    add(x,y,&sum);
 (gdb) s
-add (a=5, b=2, sum=0x7ffc6e0aabd4) at p3original.c:9
+add (a=1, b=2, sum=0x7ffc2ebcc1e4) at p3final.c:9
 9     *sum=a+b;
 (gdb) n
 10  }
 (gdb) n
-main () at p3original.c:20
+main () at p3final.c:20
 20    output(x,y,sum);
 (gdb) s
-output (a=5, b=2, sum=7) at p3original.c:13
+output (a=1, b=2, sum=3) at p3final.c:13
 13    printf("the sum of %d and %d is %d\n",a,b,sum);
-(gdb) p a
-$1 = 5
-(gdb) p b
-$2 = 2
-(gdb) p sum
-$3 = 7
 (gdb) n
-the sum of 5 and 2 is 7
+the sum of 1 and 2 is 3
 14  }
-(gdb) n
-main () at p3original.c:21
-21    return 0;
-(gdb) n
-22  }
 (gdb) c
 Continuing.
-[Inferior 1 (process 92) exited normally]
+[Inferior 1 (process 209) exited normally]
 (gdb) 

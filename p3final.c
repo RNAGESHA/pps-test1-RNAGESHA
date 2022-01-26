@@ -18,4 +18,5 @@ int main()
   input(&x,&y);
   add(x,y,&sum);
   output(x,y,sum);
+  return 0;
 }
