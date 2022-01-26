@@ -1,4 +1,4 @@
-gcc -g p5original.c
+gcc -g p5final.c
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -16,50 +16,50 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x841: file p5original.c, line 27.
+Breakpoint 1 at 0x841: file p5final.c, line 27.
 (gdb) r
 Starting program: /home/runner/pps-test1-RNAGESHA-37/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p5original.c:27
+Breakpoint 1, main () at p5final.c:27
 27  {
 (gdb) n
 29    input(&a,&b,&c);
 (gdb) s
-input (a=0x7fffcbf756c8, b=0x7fffcbf756cc, c=0x7fffcbf756d0) at p5original.c:4
+input (a=0x7ffd16148568, b=0x7ffd1614856c, c=0x7ffd16148570) at p5final.c:4
 4     printf("enter the three numbers\n");
 (gdb) n
 enter the three numbers
 5     scanf("%d%d%d",a,b,c);
 (gdb) n
-8
+8  
 5
 2
 6   }
 (gdb) n
-main () at p5original.c:30
+main () at p5final.c:30
 30    cmp(a,b,c,&largest);
 (gdb) s
-cmp (a=8, b=5, c=2, largest=0x7fffcbf756d4) at p5original.c:9
+cmp (a=8, b=5, c=2, largest=0x7ffd16148574) at p5final.c:9
 9     if(a>b && a>c)
 (gdb) n
 11      *largest=a;
 (gdb) n
 21  }
 (gdb) n
-main () at p5original.c:31
+main () at p5final.c:31
 31    output(a,b,c,largest);
 (gdb) s
-output (a=8, b=5, c=2, largest=8) at p5original.c:24
+output (a=8, b=5, c=2, largest=8) at p5final.c:24
 24    printf("largest number among %d\t%d and %d is %d\n",a,b,c,largest);
 (gdb) n
 largest number among 8  5 and 2 is 8
 25  }
 (gdb) n
-main () at p5original.c:32
+main () at p5final.c:32
 32    return 0;
 (gdb) n
 33  }(gdb) c
 Continuing.
-[Inferior 1 (process 600) exited normally]
+[Inferior 1 (process 33) exited normally]
 (gdb) 
