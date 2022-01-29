@@ -1,4 +1,4 @@
-gcc -g p6final.c
+gcc -g p6original.c
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -16,15 +16,15 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x849: file p6final.c, line 30.
+Breakpoint 1 at 0x849: file p6original.c, line 30.
 (gdb) r
-Starting program: /home/runner/pps-test1-RNAGESHA-46/a.out 
+Starting program: /home/runner/pps-test1-RNAGESHA-49/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p6final.c:30
+Breakpoint 1, main () at p6original.c:30
 30    a=input_n();
 (gdb) s
-input_n () at p6final.c:3
+input_n () at p6original.c:3
 3   {
 (gdb) n
 5   printf("enter the numbers to add:\n");
@@ -37,87 +37,88 @@ enter the numbers to add:
 (gdb) n
 8   }
 (gdb) n
-main () at p6final.c:31
+main () at p6original.c:31
 31    b=sum_n(a);
 (gdb) s
-sum_n (n=5) at p6final.c:11
+sum_n (n=5) at p6original.c:11
 11    int sum=0;
 (gdb) n
 12    for(int i=1;i<=n;i++)
 (gdb) n
 14      sum +=i;
-(gdb) p i
-$1 = 1
 (gdb) p sum
-$2 = 0
+$1 = 0
 (gdb) n
 12    for(int i=1;i<=n;i++)
 (gdb) n
 14      sum +=i;
-(gdb) p i
-$3 = 2
 (gdb) p sum
-$4 = 1
+$2 = 1
 (gdb) n
 12    for(int i=1;i<=n;i++)
 (gdb) n
 14      sum +=i;
-(gdb) p i
-$5 = 3
 (gdb) p sum
-$6 = 3
+$3 = 3
 (gdb) n
 12    for(int i=1;i<=n;i++)
 (gdb) n
 14      sum +=i;
-(gdb) p i
-$7 = 4
 (gdb) p sum
-$8 = 6
+$4 = 6
 (gdb) n
 12    for(int i=1;i<=n;i++)
 (gdb) n
 14      sum +=i;
-(gdb) p i
-$9 = 5
 (gdb) p sum
-$10 = 10
+$5 = 10
 (gdb) n
 12    for(int i=1;i<=n;i++)
-(gdb) p sum
-$11 = 15
 (gdb) n
 16    return sum;
+(gdb) p sum
+$6 = 15
 (gdb) n
 17  } 
 (gdb) n
-main () at p6final.c:32
+main () at p6original.c:32
 32    output(a,b);
 (gdb) s
-output (n=5, sum=15) at p6final.c:21
+output (n=5, sum=15) at p6original.c:21
 21    for(int i=1;i<=n;i++)
 (gdb) n
-23      printf("%d +\n",i);
+23      printf("%d +",i);
 (gdb) n
-1 +
-24    printf("\n sum of %d = %d\n",n,sum);
-(gdb) n
-
- sum of 5 = 15
 21    for(int i=1;i<=n;i++)
-(gdb) c
-Continuing.
-2 +
-
- sum of 5 = 15
-3 +
-
- sum of 5 = 15
-4 +
-
- sum of 5 = 15
-5 +
-
- sum of 5 = 15
-[Inferior 1 (process 129) exited normally]
 (gdb) n
+23      printf("%d +",i);
+(gdb) n
+21    for(int i=1;i<=n;i++)
+(gdb) n
+23      printf("%d +",i);
+(gdb) n
+21    for(int i=1;i<=n;i++)
+(gdb) n
+23      printf("%d +",i);
+(gdb) n
+21    for(int i=1;i<=n;i++)
+(gdb) n
+23      printf("%d +",i);
+(gdb) n
+21    for(int i=1;i<=n;i++)
+(gdb) n
+25    printf("sum of %d is %d\n",n,sum);
+(gdb) n
+1 +2 +3 +4 +5 +sum of 5 is 15
+26  }
+(gdb) n
+main () at p6original.c:33
+33    return 0;
+(gdb) n
+34  }(gdb) q
+A debugging session is active.
+
+    Inferior 1 [process 78] will be killed.
+
+Quit anyway? (y or n) y
+ 
