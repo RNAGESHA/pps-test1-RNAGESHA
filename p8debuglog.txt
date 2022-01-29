@@ -1,4 +1,4 @@
-gcc -g p8original.c
+gcc -g p8final.c
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -16,15 +16,15 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x88d: file p8original.c, line 29.
+Breakpoint 1 at 0x88d: file p8final.c, line 29.
 (gdb) r
 Starting program: /home/runner/pps-test1-RNAGESHA-49/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p8original.c:29
+Breakpoint 1, main () at p8final.c:29
 29    n=input();
 (gdb) s
-input () at p8original.c:4
+input () at p8final.c:4
 4   {
 (gdb) n
 6     printf("enter the number:\n");
@@ -37,27 +37,17 @@ enter the number:
 (gdb) n
 9   }
 (gdb) n
-main () at p8original.c:30
+main () at p8final.c:30
 30    a=my_sqrt(n);
 (gdb) s
-my_sqrt (n=24) at p8original.c:12
+my_sqrt (n=24) at p8final.c:12
 12    float x=n/4;
 (gdb) n
 14    a=0.5*(x + (n/x));
-(gdb) p a
-$1 = 2.74684507e-36
-(gdb) n
-15    while( fabs(x - a)>0.000001)
-(gdb) n
-17      x = a;
-(gdb) p a
-$2 = 5
-(gdb) n
-18      a=0.5*(x + (n/x));
 (gdb) n
 15    while( fabs(x - a)>0.000001)
 (gdb) p a
-$3 = 4.9000001
+$1 = 5
 (gdb) n
 17      x = a;
 (gdb) n
@@ -65,7 +55,7 @@ $3 = 4.9000001
 (gdb) n
 15    while( fabs(x - a)>0.000001)
 (gdb) p a
-$4 = 4.89897966
+$2 = 4.9000001
 (gdb) n
 17      x = a;
 (gdb) n
@@ -73,25 +63,33 @@ $4 = 4.89897966
 (gdb) n
 15    while( fabs(x - a)>0.000001)
 (gdb) p a
-$5 = 4.89897919
+$3 = 4.89897966
+(gdb) n
+17      x = a;
+(gdb) n
+18      a=0.5*(x + (n/x));
+(gdb) n
+15    while( fabs(x - a)>0.000001)
+(gdb) p a
+$4 = 4.89897919
 (gdb) n
 20    return a;
 (gdb) n
 21  }
 (gdb) n
-main () at p8original.c:31
+main () at p8final.c:31
 31    output(n,a);
 (gdb) s
-output (n=24, a=4.89897919) at p8original.c:24
+output (n=24, a=4.89897919) at p8final.c:24
 24    printf("The square root of %f is %f\n",n,a);
 (gdb) n
 The square root of 24.000000 is 4.898979
 25  }
 (gdb) n
-main () at p8original.c:32
+main () at p8final.c:32
 32    return 0;
 (gdb) n
 33  }(gdb) c
 Continuing.
-[Inferior 1 (process 162) exited normally]
+[Inferior 1 (process 271) exited normally]
 (gdb) 
